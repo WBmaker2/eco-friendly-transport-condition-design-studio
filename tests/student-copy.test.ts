@@ -25,7 +25,7 @@ describe("초등 3~4학년 학생용 문구", () => {
   it("keeps catalog copy free of the hardest student-facing terms", () => {
     const componentCopy = components.flatMap((item) => [item.name, item.short, item.strength, item.burden]).join(" ");
     const missionCopy = missions.flatMap((item) => [item.title, item.cargo, item.purpose, item.control, ...item.notes]).join(" ");
-    expect(`${componentCopy} ${missionCopy}`).not.toMatch(/접지|평탄 경로|정밀 조향|이중 제동|긴급 재설계|관측/);
+    expect(`${componentCopy} ${missionCopy}`).not.toMatch(/접지|평탄 경로|정밀 조향|이중 제동|긴급 재설계|관측|적재함|자체 무게|제어에는 제한/);
   });
 
   it("keeps result explanations free of bracketed particles", () => {

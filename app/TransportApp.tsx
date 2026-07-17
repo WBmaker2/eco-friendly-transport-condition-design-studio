@@ -244,7 +244,7 @@ export default function TransportApp() {
                 <ResultBoard evaluation={redesignBaseEvaluation} />
               </>
             ) : null}
-            <p className="lead">더 좋게 만들 조건 하나와 그대로 지킬 장점 하나를 골라요.</p>
+            <p className="lead">더 좋게 만들 조건 하나와 그대로 지킬 좋은 점 하나를 골라요.</p>
             <fieldset>
               <legend>더 좋게 만들 조건</legend>
               {redesignChoices.targets.map((item) => (
@@ -260,11 +260,11 @@ export default function TransportApp() {
               ))}
             </fieldset>
             <fieldset>
-              <legend>그대로 지킬 장점</legend>
+              <legend>그대로 지킬 좋은 점</legend>
               {redesignChoices.strengths.filter((item) => item.conditionId !== target).map((item) => (
                 <label key={item.conditionId}>
                   <input type="radio" name="strength" checked={strength === item.conditionId} onChange={() => setStrength(item.conditionId)} />
-                  {item.label}은 그대로 지킬게요
+                  그대로 지킬 조건: {item.label}
                 </label>
               ))}
             </fieldset>
