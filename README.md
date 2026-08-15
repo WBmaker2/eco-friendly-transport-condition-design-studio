@@ -18,6 +18,14 @@ npm run lint
 npm run build
 ```
 
+## GitHub Pages
+
+정적 학습 화면은 다음 주소에서 공개됩니다.
+
+<https://wbmaker2.github.io/eco-friendly-transport-condition-design-studio/>
+
+Pages 배포용 로컬 빌드는 `npm run build:pages`로 확인할 수 있습니다.
+
 ## 안전·개인정보 경계
 
 - 실제 차량의 성능, 적재량, 안전을 보증하지 않는 교육용 디지털 시제품입니다.
