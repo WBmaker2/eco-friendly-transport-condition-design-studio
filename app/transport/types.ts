@@ -3,6 +3,12 @@ export type ComponentGroup = "structure" | "movement" | "energy" | "control";
 export type ConditionId = "load" | "distance" | "path" | "stability-control" | "energy";
 export type ConditionStatus = "fits" | "partial" | "redesign";
 
+export interface LearningVisual {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
 export interface Mission {
   id: string;
   number: number;
@@ -18,6 +24,7 @@ export interface Mission {
   minimumStability: Level;
   minimumControl: Level;
   notes: string[];
+  visual: LearningVisual;
   conditionChange?: {
     before: string[];
     after: string[];

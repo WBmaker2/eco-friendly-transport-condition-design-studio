@@ -6,6 +6,7 @@ const repositoryBase = "/eco-friendly-transport-condition-design-studio/";
 export default defineConfig({
   root: "pages",
   base: repositoryBase,
+  publicDir: "../public",
   plugins: [react()],
   build: {
     outDir: "../dist-pages",

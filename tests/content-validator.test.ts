@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { existsSync } from "node:fs";
 import { components } from "../app/transport/components";
 import { buildAllDesigns, validateContent } from "../app/transport/content-validator";
 import { evaluateDesign } from "../app/transport/evaluator";
@@ -9,6 +10,15 @@ describe("transport content", () => {
     expect(validateContent(missions, components)).toEqual([]);
     expect(components).toHaveLength(12);
     expect(missions).toHaveLength(5);
+  });
+
+  it("gives every mission a generated learning visual", () => {
+    missions.forEach((mission) => {
+      expect(mission.visual.src).toMatch(/^learning\/mission-[a-z-]+\.webp$/);
+      expect(existsSync(`public/${mission.visual.src}`)).toBe(true);
+      expect(mission.visual.alt.length).toBeGreaterThan(10);
+      expect(mission.visual.caption.length).toBeGreaterThan(10);
+    });
   });
 
   it("evaluates all 81 combinations for every mission", () => {

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { BuildStep } from "./transport/BuildStep";
 import { byId, components } from "./transport/components";
 import { HelpDialog } from "./transport/Dialogs";
+import { LearningVisual } from "./transport/LearningVisual";
 import { compareEvaluations, evaluateDesign, getRedesignChoices, isSingleComponentChange } from "./transport/evaluator";
 import { getFirstDesignMission, missions } from "./transport/missions";
 import { getPreviousPhase, type Phase } from "./transport/navigation";
@@ -161,6 +162,7 @@ export default function TransportApp() {
           <section className="panel tutorial">
             <p className="leaf">짧은 연습</p>
             <h1>할 일이 바뀌면 수레도 달라져요</h1>
+            <LearningVisual visual={{ src: "learning/transport-learning-overview.webp", alt: "교실에서 상자를 실은 초록 수레와 평평한 길, 울퉁불퉁한 길, 오르막길을 살펴보는 장면", caption: "짐과 길이 달라지면 고를 부품도 달라질 수 있어요." }} />
             <div className="tutorial-grid">
               <article><b>가벼운 상자</b><p>평평한 가까운 길에서는 가볍고 간단한 부품이 잘 맞을 수 있어요.</p></article>
               <article><b>무거운 상자</b><p>울퉁불퉁한 먼 길에서는 튼튼한 부품과 더 큰 힘이 필요할 수 있어요.</p></article>
@@ -177,6 +179,7 @@ export default function TransportApp() {
             <div className="mission-grid">
               {missions.map((item) => (
                 <button key={item.id} className="mission-card" onClick={() => chooseMission(item.id)}>
+                  <img src={item.visual.src} alt="" loading="lazy" decoding="async" />
                   <span>할 일 {item.number}</span><b>{item.title}</b><small>{item.cargo}</small>
                 </button>
               ))}
@@ -188,6 +191,7 @@ export default function TransportApp() {
           <section className="panel brief">
             <p className="leaf">할 일 {mission.number}</p>
             <h1>{mission.title}</h1>
+            <LearningVisual visual={mission.visual} />
             <p>{mission.purpose}</p>
             <p><b>옮길 물건:</b> {mission.cargo}</p>
             {mission.conditionChange ? (
@@ -206,6 +210,7 @@ export default function TransportApp() {
           <section>
             <h1>{mission.conditionChange ? "먼저 처음 조건을 살펴봐요" : "조건을 하나씩 눌러 봐요"}</h1>
             <p className="lead">카드 5개를 모두 누르면 부품을 고를 수 있어요.</p>
+            <LearningVisual visual={mission.visual} className="conditions-visual" />
             <div className="conditions">
               {conditionCards(firstDesignMission).map(([title, detail]) => (
                 <button
@@ -241,6 +246,7 @@ export default function TransportApp() {
                   <div><b>바뀐 조건</b><p>{mission.conditionChange.after.join(" · ")}</p></div>
                   <p>새 조건에 맞게 부품 하나만 바꿔 보세요.</p>
                 </div>
+                <LearningVisual visual={mission.visual} />
                 <ResultBoard evaluation={redesignBaseEvaluation} />
               </>
             ) : null}
