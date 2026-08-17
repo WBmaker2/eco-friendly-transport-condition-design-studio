@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "친환경 수송 조건 설계소",
-  description: "초등 5~6학년을 위한 친환경 수송 조건 설계 활동",
+  description: "초등 3~4학년을 위한 친환경 수송 조건 설계 활동",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
