@@ -55,7 +55,7 @@ button:disabled { cursor:not-allowed; opacity:.55; background:#edf0e8; }
 .tutorial article,.comparison article { padding:18px; border-radius:14px; background:#eef5e8; }
 .tutorial article:last-child,.comparison article:last-child { background:#e8f3f0; }
 .learning-visual { margin:20px 0 24px; overflow:hidden; border:1px solid var(--line); border-radius:16px; background:#f1f5eb; }
-.learning-visual img { display:block; width:100%; max-height:330px; object-fit:cover; }
+.learning-visual img { display:block; width:100%; height:auto; max-height:420px; aspect-ratio:3 / 2; object-fit:contain; object-position:center; background:#edf4e9; }
 .learning-visual figcaption { padding:10px 13px; color:var(--muted); font-size:14px; }
 .tutorial > .learning-visual { max-width:760px; }
 .conditions-visual { max-width:680px; }
@@ -67,7 +67,7 @@ button:disabled { cursor:not-allowed; opacity:.55; background:#edf0e8; }
 .mission-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:24px; }
 .mission-card { min-height:250px; display:flex; flex-direction:column; align-items:flex-start; gap:7px; padding:0 17px 17px; overflow:hidden; text-align:left; background:var(--surface); }
 .mission-card:hover { transform:translateY(-2px); box-shadow:0 10px 25px #173b3715; }
-.mission-card img { width:calc(100% + 34px); height:116px; margin:0 0 5px -17px; object-fit:cover; }
+.mission-card img { width:calc(100% + 34px); height:auto; aspect-ratio:16 / 9; margin:0 0 5px -17px; object-fit:contain; object-position:center; background:#edf4e9; }
 .mission-card span { color:var(--green); font-size:14px; }
 .mission-card b { font-size:19px; line-height:1.35; word-break:keep-all; }
 .mission-card small { color:var(--muted); font-weight:normal; line-height:1.45; }
@@ -104,7 +104,7 @@ button:disabled { cursor:not-allowed; opacity:.55; background:#edf0e8; }
 .prototype { padding:19px; border:1px solid var(--line); border-radius:18px; background:var(--surface); }
 .section-heading span { color:var(--green); font-weight:bold; font-size:14px; }
 .section-heading h2 { margin:2px 0 10px; }
-.prototype-image { display:block; width:100%; max-width:470px; margin:auto; border-radius:13px; }
+.prototype-image { display:block; width:100%; max-width:470px; height:auto; aspect-ratio:1; margin:auto; border-radius:13px; object-fit:contain; background:#edf4e9; }
 .prototype-note { margin:10px 0 0; color:var(--muted); font-size:14px; }
 .ground { stroke:#b4c4b7; stroke-width:3; }
 .structure { fill:#d3a95c; }
@@ -199,7 +199,7 @@ button:disabled { cursor:not-allowed; opacity:.55; background:#edf0e8; }
   .welcome > p:not(.leaf):not(.safety) { font-size:18px; }
   .mission-grid,.tutorial-grid,.comparison,.environment,.tradeoff-grid { grid-template-columns:1fr; }
   .mission-card { display:grid; grid-template-columns:58px 1fr; min-height:0; gap:3px 13px; padding:0 15px 15px; }
-  .mission-card img { grid-column:1 / -1; width:calc(100% + 30px); height:145px; margin:0 0 8px -15px; }
+  .mission-card img { grid-column:1 / -1; width:calc(100% + 30px); height:auto; margin:0 0 8px -15px; }
   .mission-card span { grid-row:2 / 4; align-self:stretch; display:flex; align-items:center; border-right:1px solid var(--line); padding-right:10px; }
   .mission-card b { align-self:end; font-size:18px; }
   .mission-card small { align-self:start; }

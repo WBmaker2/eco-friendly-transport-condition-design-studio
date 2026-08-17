@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { components } from "../app/transport/components";
 import { buildAllDesigns, validateContent } from "../app/transport/content-validator";
 import { evaluateDesign } from "../app/transport/evaluator";
@@ -19,6 +19,15 @@ describe("transport content", () => {
       expect(mission.visual.alt.length).toBeGreaterThan(10);
       expect(mission.visual.caption.length).toBeGreaterThan(10);
     });
+  });
+
+  it("keeps generated learning images whole inside responsive frames", () => {
+    const styles = readFileSync("app/globals.css", "utf8");
+    expect(styles).toMatch(/\.learning-visual img \{[^}]*object-fit:contain/);
+    expect(styles).toMatch(/\.mission-card img \{[^}]*object-fit:contain/);
+    expect(styles).toMatch(/\.prototype-image \{[^}]*object-fit:contain/);
+    expect(styles).not.toMatch(/\.learning-visual img \{[^}]*object-fit:cover/);
+    expect(styles).not.toMatch(/\.mission-card img \{[^}]*object-fit:cover/);
   });
 
   it("evaluates all 81 combinations for every mission", () => {
