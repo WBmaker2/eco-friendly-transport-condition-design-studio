@@ -5,7 +5,7 @@
 - 점검 모드: elementary-webapp-ux-orchestrator full
 - 주 사용자: 초등 3~4학년 학생, 교사의 짧은 안내 후 혼자 진행
 - VoiceOver: 요청 범위와 운영 기준에 따라 제외
-- 커밋·푸시·배포: 이번 요청 범위가 아니므로 실행하지 않음
+- 커밋·푸시·배포: 2026-08-31 실행 완료(아래 배포 기록 참고)
 
 ## 1. Stage 0 및 UI/UX 경로
 
@@ -69,7 +69,7 @@ fallback-reason=앞선 ui-ux-pro-max는 현재 턴에 호출 가능한 런타임
 
 ## 6. 브라우저 검증
 
-검증 서버는 최신 `dist-pages`를 복사한 로컬 정적 서버이며, 공개 배포 결과를 의미하지 않습니다.
+검증 서버는 최신 `dist-pages`를 복사한 로컬 정적 서버이며, 공개 결과는 아래 배포 기록에서 별도로 확인했습니다.
 
 | 화면/검사 | 결과 |
 | --- | --- |
@@ -98,10 +98,17 @@ npm run build:pages ✅ completed
 git diff --check    ✅ passed
 ```
 
-## 8. 수용 판정 및 후속
+## 8. 배포 기록
+
+- 커밋: `8ade8c53beaeba5ed63f6733b6a8da16c2b04aad` (`main`)
+- GitHub Actions: [Deploy to GitHub Pages #33395188214](https://github.com/WBmaker2/eco-friendly-transport-condition-design-studio/actions/runs/33395188214) — build/deploy 성공
+- 공개 주소: [친환경 수송 조건 설계소](https://wbmaker2.github.io/eco-friendly-transport-condition-design-studio/)
+- 공개 브라우저에서 시작 → 조건 5개 → 부품 4개 → 첫 시험 → 다시 만들기 → 결과 비교를 완주했고, `scrollY=0`, 콘솔 오류 0, 학습 이미지 요청 200을 확인했습니다.
+
+## 9. 수용 판정 및 후속
 
 보조 점수는 기준선 82/100에서 개선 후 92/100으로 올랐습니다. P0는 없고 UX-01 P1은 해결되었습니다. 다만 실제 초등학생의 자기 말 재진술·교사 동반 수업 관찰은 실행하지 않았으므로 오케스트레이터 판정은 `conditional`로 기록합니다. 이는 구현 실패가 아니라 사람 대상 comprehension probe가 남아 있다는 뜻입니다.
 
 - 학습 takeaway: 결과 비교 화면에서 좋아진 조건, 그대로인 조건, 새로 생각할 점을 함께 읽습니다.
 - 다음 권장 행동: 실제 초등 3~4학년 1명 이상에게 10분 사용성 probe를 진행하고, “지금 무엇을 골라야 하나요?”, “부품 하나를 바꾸면 무엇이 달라지나요?”를 자기 말로 설명하는지 확인합니다.
-- 공개 배포·CI·HVC 등록은 이번 요청에 포함하지 않았으므로 별도 release gate로 남겨 둡니다.
+- 공개 배포와 CI는 완료했습니다. HVC 등록과 실제 학생 probe는 별도 후속 release gate로 남깁니다.
