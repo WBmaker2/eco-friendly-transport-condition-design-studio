@@ -25,6 +25,8 @@ describe("transport content", () => {
     const styles = readFileSync("app/globals.css", "utf8");
     expect(styles).toMatch(/\.learning-visual img \{[^}]*object-fit:contain/);
     expect(styles).toMatch(/\.mission-card img \{[^}]*object-fit:contain/);
+    expect(styles).toMatch(/\.mission-card img \{[^}]*aspect-ratio:4 \/ 3/);
+    expect(styles).toMatch(/\.mission-card img \{[^}]*max-width:none/);
     expect(styles).toMatch(/\.prototype-image \{[^}]*object-fit:contain/);
     expect(styles).not.toMatch(/\.learning-visual img \{[^}]*object-fit:cover/);
     expect(styles).not.toMatch(/\.mission-card img \{[^}]*object-fit:cover/);

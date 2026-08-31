@@ -10,6 +10,7 @@ import { getFirstDesignMission, missions } from "./transport/missions";
 import { getPreviousPhase, type Phase } from "./transport/navigation";
 import { RedesignStep } from "./transport/RedesignStep";
 import { ResultBoard } from "./transport/ResultBoard";
+import { resetPageScroll } from "./transport/scroll";
 import { makeComparisonCopy, progressLabels, statusText, studentGroupLabels } from "./transport/student-copy";
 import type { ComponentGroup, ConditionId, TransportDesign } from "./transport/types";
 
@@ -63,7 +64,18 @@ export default function TransportApp() {
     : null;
 
   useEffect(() => {
-    if (phase === "first-test" || phase === "second-test") resultHeadingRef.current?.focus();
+    resetPageScroll();
+    if (phase === "first-test" || phase === "second-test") {
+      resultHeadingRef.current?.focus({ preventScroll: true });
+      return;
+    }
+    if (typeof document !== "undefined") {
+      const stageHeading = document.querySelector<HTMLElement>("#main h1");
+      if (stageHeading) {
+        stageHeading.tabIndex = -1;
+        stageHeading.focus({ preventScroll: true });
+      }
+    }
   }, [phase]);
 
   const setPart = (group: ComponentGroup, id: string) => {

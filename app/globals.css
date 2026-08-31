@@ -67,7 +67,7 @@ button:disabled { cursor:not-allowed; opacity:.55; background:#edf0e8; }
 .mission-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:24px; }
 .mission-card { min-height:250px; display:flex; flex-direction:column; align-items:flex-start; gap:7px; padding:0 17px 17px; overflow:hidden; text-align:left; background:var(--surface); }
 .mission-card:hover { transform:translateY(-2px); box-shadow:0 10px 25px #173b3715; }
-.mission-card img { width:calc(100% + 34px); height:auto; aspect-ratio:16 / 9; margin:0 0 5px -17px; object-fit:contain; object-position:center; background:#edf4e9; }
+.mission-card img { flex-shrink:0; max-width:none; width:calc(100% + 34px); height:auto; aspect-ratio:4 / 3; margin:0 0 5px -17px; object-fit:contain; object-position:center; background:#edf4e9; }
 .mission-card span { color:var(--green); font-size:14px; }
 .mission-card b { font-size:19px; line-height:1.35; word-break:keep-all; }
 .mission-card small { color:var(--muted); font-weight:normal; line-height:1.45; }
